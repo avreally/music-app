@@ -5,12 +5,12 @@ console.log(searchFieldInput.value);
 
 const searchButton = document.getElementById("searchButton");
 
-let searchRequest;
+let userSearchRequest;
 
 const readSearchInput = (event) => {
   event.preventDefault();
   console.log(searchFieldInput.value);
-  searchRequest = searchFieldInput.value;
+  userSearchRequest = searchFieldInput.value;
   form.reset();
 };
 
