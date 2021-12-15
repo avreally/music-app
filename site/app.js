@@ -32,11 +32,26 @@ const getSong = (userSearchRequest) => {
 const searchForSong = async (event) => {
   await readSearchInput(event);
   getSong(userSearchRequest).then((result) => {
-    resultDiv.innerHTML = result;
+    renderSearchResult(result);
   });
 };
 
 searchButton.addEventListener("click", searchForSong);
 
-// Rendering search result in the browser
+// Rendering search result
+const renderSearchResult = (data) => {
+  const searchResult = `<div>
+      <img src="${data.songImgUrl}" alt="album-image" />
+      <h3>${data.title}</h3>
+      <h4>${data.artist}</h4>
+      <div>
+        <iframe
+          src="https://genius.com/songs/${data.songId}/apple_music_player"
+        ></iframe>
+      </div>
+    </div>`;
+  resultDiv.innerHTML = searchResult;
+};
+
+// Appending result in the browser
 main.append(resultDiv);

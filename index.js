@@ -1,9 +1,11 @@
 import axios from "axios";
 import "dotenv/config";
 import express from "express";
+import cors from "cors";
 
 // Creating and running a server
 const app = express();
+app.use(cors());
 app.use(express.static("./site"));
 
 const PORT = 3001;
@@ -23,11 +25,24 @@ const getUserSearchResult = async (userQuery) => {
     const response = await axios.get(`${baseURL}${searchPath}${userQuery}`, {
       headers,
     });
-    console.log(response.data.response.hits[0]);
-    return response.data.response.hits[0].result.full_title;
+    const result = getSongData(response.data.response.hits[0].result);
+    return result;
   } catch (err) {
     console.error(err);
   }
+};
+
+// Selecting specific data from all data about song
+const getSongData = (allData) => {
+  const {
+    title,
+    artist_names: artist,
+    id: songId,
+    song_art_image_url: songImgUrl,
+  } = allData;
+
+  console.log({ title, artist, songId, songImgUrl });
+  return { title, artist, songId, songImgUrl };
 };
 
 // Making Genius API request and sending result back to browser
