@@ -1,8 +1,8 @@
-const form = document.getElementById("form");
-const main = document.getElementById("main");
-const searchButton = document.getElementById("searchButton");
-const searchFieldInput = document.getElementById("searchField");
-const resultDiv = document.createElement("div");
+const form = document.querySelector(".searchForm");
+const container = document.querySelector(".container");
+const searchButton = document.querySelector(".searchButton");
+const searchFieldInput = document.querySelector(".searchField");
+const resultDiv = document.querySelector(".resultContainer");
 
 let userSearchRequest;
 
@@ -40,18 +40,14 @@ searchButton.addEventListener("click", searchForSong);
 
 // Rendering search result
 const renderSearchResult = (data) => {
-  const searchResult = `<div>
-      <img src="${data.songImgUrl}" alt="album-image" />
-      <h3>${data.title}</h3>
-      <h4>${data.artist}</h4>
-      <div>
-        <iframe
+  const searchResult = `<img class="albumImg" src="${data.songImgUrl}" alt="album-image" />
+      <h2 class="songTitle">${data.title}</h2>
+      <h3 class="artistName">${data.artist}</h3>
+        <iframe class="iFrame"
           src="https://genius.com/songs/${data.songId}/apple_music_player"
-        ></iframe>
-      </div>
-    </div>`;
+        ></iframe>`;
   resultDiv.innerHTML = searchResult;
 };
 
 // Appending result in the browser
-main.append(resultDiv);
+container.append(resultDiv);

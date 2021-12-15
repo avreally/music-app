@@ -10,15 +10,25 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
+    <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <main id="main">
-      <form action="" id="form">
-        <div>
-          <input type="search" id="searchField" name="q" />
-          <button id="searchButton">Search</button>
-        </div>
-      </form>
+    <main class="main">
+      <div class="container">
+        <div class="heading"></div>
+        <form action="" class="searchForm">
+          <div>
+            <input
+              type="search"
+              class="searchField"
+              name="q"
+              placeholder="Enter song name"
+            />
+            <button class="searchButton">Search</button>
+          </div>
+        </form>
+        <div class="resultContainer"></div>
+      </div>
     </main>
   </body>
 </html>
