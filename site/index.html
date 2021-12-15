@@ -3,14 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <title>Music App</title>
-    <script src="app.js" defer></script>
+    <script src="app.js" type="module" defer></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js"
+      integrity="sha512-u9akINsQsAkG9xjc1cnGF4zw5TFDwkxuc9vUp5dltDWYCSmyd0meygbvgXrlc/z7/o4a19Fb5V0OUE58J7dcyw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
   </head>
   <body>
-    <form action="" id="form">
-      <div>
-        <input type="search" id="searchField" name="q" />
-        <button id="searchButton">Search</button>
-      </div>
-    </form>
+    <main id="main">
+      <form action="" id="form">
+        <div>
+          <input type="search" id="searchField" name="q" />
+          <button id="searchButton">Search</button>
+        </div>
+      </form>
+    </main>
   </body>
 </html>

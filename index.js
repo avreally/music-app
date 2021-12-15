@@ -28,10 +28,13 @@ const getUserSearchResult = async () => {
       { headers }
     );
     console.log(response.data.response.hits[0]);
+    return response.data.response.hits[0].result.title;
   } catch (err) {
     console.error(err);
   }
 };
 
-getUserSearchResult();
-
+app.get("/api/song", async (request, response) => {
+  const result = await getUserSearchResult();
+  response.send(result);
+});
