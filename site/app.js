@@ -1,12 +1,12 @@
 const form = document.getElementById("form");
-
-const searchFieldInput = document.getElementById("searchField");
-console.log(searchFieldInput.value);
-
+const main = document.getElementById("main");
 const searchButton = document.getElementById("searchButton");
+const searchFieldInput = document.getElementById("searchField");
+const resultDiv = document.createElement("div");
 
 let userSearchRequest;
 
+// Reading value from search input
 const readSearchInput = (event) => {
   event.preventDefault();
   console.log(searchFieldInput.value);
@@ -14,14 +14,12 @@ const readSearchInput = (event) => {
   form.reset();
 };
 
-searchButton.addEventListener("click", readSearchInput);
-
-const resultDiv = document.createElement("div");
-
+// Base url for request to the server
 const baseUrl = "/api/song";
 
-const getSong = () => {
-  const request = axios.get(baseUrl);
+// Request to the server, passing user search request
+const getSong = (userSearchRequest) => {
+  const request = axios.get(`${baseUrl}?search=${userSearchRequest}`);
   return request.then((response) => {
     console.log(response.data);
     const result = response.data;
@@ -29,9 +27,16 @@ const getSong = () => {
   });
 };
 
-getSong().then((result) => {
-  resultDiv.innerHTML = result;
-});
+// Function that runs on click on search button, it runs function that reads value from search input,
+// and then runs function that makes request to the server
+const searchForSong = async (event) => {
+  await readSearchInput(event);
+  getSong(userSearchRequest).then((result) => {
+    resultDiv.innerHTML = result;
+  });
+};
 
-const main = document.getElementById("main");
+searchButton.addEventListener("click", searchForSong);
+
+// Rendering search result in the browser
 main.append(resultDiv);
