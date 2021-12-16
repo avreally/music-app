@@ -40,12 +40,18 @@ searchButton.addEventListener("click", searchForSong);
 
 // Rendering search result
 const renderSearchResult = (data) => {
-  const searchResult = `<img class="albumImg" src="${data.songImgUrl}" alt="album-image" />
+  const searchResult = `<div class="songDataContainer"><div class="albumImgContainer">
+      <img class="albumImg" src="${data.songImgUrl}" alt="album-image" />
+    </div>
+    <div class="songTitleAndNameContainer">
       <h2 class="songTitle">${data.title}</h2>
       <h3 class="artistName">${data.artist}</h3>
-        <iframe class="iFrame"
-          src="https://genius.com/songs/${data.songId}/apple_music_player"
-        ></iframe>`;
+    </div>
+    </div>
+    <iframe
+      class="iFrame"
+      src="https://genius.com/songs/${data.songId}/apple_music_player"
+    ></iframe>`;
   resultDiv.innerHTML = searchResult;
 };
 
