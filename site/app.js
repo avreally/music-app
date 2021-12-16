@@ -50,6 +50,7 @@ const renderSearchResult = (data) => {
     </div>
     <iframe
       class="iFrame"
+      title="Apple music player"
       src="https://genius.com/songs/${data.songId}/apple_music_player"
     ></iframe>`;
   resultDiv.innerHTML = searchResult;

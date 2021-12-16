@@ -15,7 +15,7 @@ html {
 body {
   margin: 0;
   padding: 0;
-  background-color: #1b0229;
+  background: linear-gradient(#030037, #360187);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -31,14 +31,13 @@ body {
   display: flex;
   flex-direction: column;
   height: 90%;
-  /*min-width: 55%;*/
   width: 55%;
   overflow: auto;
   justify-content: flex-start;
   align-items: center;
-  border: 2px solid #990ed7;
+  border: 2px solid #58d9ff;
   border-radius: 8px;
-  box-shadow: 0 0 30px rgba(153, 14, 215, 0.9);
+  box-shadow: 0 0 30px rgba(88, 217, 255, 0.89);
 }
 
 .container {
@@ -48,7 +47,6 @@ body {
   width: 100%;
   gap: 4%;
   padding: 2.5rem 3rem 0;
-  /*justify-content: space-between;*/
 }
 
 .heading {
@@ -65,11 +63,11 @@ body {
   height: 55px;
 }
 
+/* Search form styles */
 .searchForm {
   display: flex;
   flex-direction: row;
   padding: 20px 1rem;
-  /*flex-wrap: nowrap;*/
   justify-content: center;
 }
 
@@ -79,19 +77,18 @@ body {
   flex-wrap: nowrap;
   justify-content: center;
   flex-basis: 100%;
-  /*flex: 0 0 auto;*/
 }
 
 .searchField {
   flex-basis: 92%;
   padding: 10px;
   border-radius: 5px;
-  border: 2px solid #da4fd3;
+  border: 2px solid #58d9ff;
   min-width: 0;
 }
 
 .searchField:focus {
-  box-shadow: 0 0 3pt 2pt #e32ada;
+  box-shadow: 0 0 3pt 2pt rgba(89 217 255 / 73%);
   outline: none;
 }
 
@@ -99,22 +96,23 @@ body {
   flex-basis: 8%;
   padding: 10px 15px;
   border-radius: 5px;
-  border: 2px solid #da4fd3;
+  border: 2px solid #58d9ff;
   color: #fff;
-  background-color: #3e016a;
+  background-color: #030037;
   margin-left: 5px;
 }
 
 .searchButton:focus {
-  box-shadow: 0 0 3pt 2pt #e32ada;
+  box-shadow: 0 0 3pt 2pt rgba(89 217 255 / 73%);
   outline: none;
 }
 
 .searchButton:hover {
   cursor: pointer;
-  background-color: #990ed7;
+  background-color: #2701c1;
 }
 
+/* Result styling */
 .resultContainer {
   display: flex;
   flex-direction: column;
@@ -129,7 +127,6 @@ body {
   flex-wrap: nowrap;
   justify-content: space-between;
   height: 60%;
-  /*width: 90%;*/
   gap: 4%;
   padding: 0 1rem;
 }
@@ -139,11 +136,9 @@ body {
   flex-direction: row;
   justify-content: center;
   flex-basis: 48%;
-  /*height: 90%;*/
 }
 
 .albumImg {
-  /*height: 30%;*/
   width: 100%;
   object-fit: cover;
 }
@@ -155,7 +150,6 @@ body {
   flex-basis: 48%;
   gap: 10%;
   justify-content: center;
-  /*width: 40%;*/
 }
 
 .songTitle {
@@ -203,7 +197,7 @@ body {
 
 .neonlight--pink path {
   fill: #FF38D5;
-  stroke: #EA15AF;
+  /*stroke: #EA15AF;*/
   stroke-width: 0.2px;
 }
 
@@ -225,6 +219,17 @@ body {
 
 .neonlight--yellow line {
   stroke: #FFC828;
+}
+
+.neonlight--pink--purple {
+  -webkit-filter: drop-shadow(0 0 3px #990ed7);
+  filter: drop-shadow(0 0 3px #990ed7);
+}
+
+.neonlight--pink--purple path {
+  fill: #990ed7;
+  stroke: #EA15AF;
+  stroke-width: 0.2px;
 }
 
 /* Light blue neon with blue shadow, class .neonlight--darkblue works when placed on the <svg> element only. */
