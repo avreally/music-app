@@ -4,14 +4,13 @@ const searchButton = document.querySelector(".searchButton");
 const searchFieldInput = document.querySelector(".searchField");
 const resultDiv = document.querySelector(".resultContainer");
 
-let userSearchRequest;
-
 // Reading value from search input
 const readSearchInput = (event) => {
   event.preventDefault();
   console.log(searchFieldInput.value);
-  userSearchRequest = searchFieldInput.value;
+  const userSearchRequest = searchFieldInput.value;
   form.reset();
+  return userSearchRequest;
 };
 
 // Base url for request to the server
@@ -29,9 +28,9 @@ const getSong = (userSearchRequest) => {
 
 // Function that runs on click on search button, it runs function that reads value from search input,
 // and then runs function that makes request to the server
-const searchForSong = async (event) => {
-  await readSearchInput(event);
-  getSong(userSearchRequest).then((result) => {
+const searchForSong = (event) => {
+  const value = readSearchInput(event);
+  getSong(value).then((result) => {
     renderSearchResult(result);
   });
 };
