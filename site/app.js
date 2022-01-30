@@ -18,12 +18,12 @@ const baseUrl = "/api/song";
 
 // Request to the server, passing user search request
 const getSong = (userSearchRequest) => {
-  const request = axios.get(`${baseUrl}?search=${userSearchRequest}`);
-  return request.then((response) => {
-    console.log(response.data);
-    const result = response.data;
-    return result;
-  });
+  return axios
+    .get(`${baseUrl}?search=${userSearchRequest}`)
+    .then((response) => {
+      console.log(response.data);
+      return response.data;
+    });
 };
 
 // Function that runs on click on search button, it runs function that reads value from search input,
