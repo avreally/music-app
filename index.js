@@ -25,8 +25,7 @@ const getUserSearchResult = async (userQuery) => {
     const response = await axios.get(`${baseURL}${searchPath}${userQuery}`, {
       headers,
     });
-    const result = getSongData(response.data.response.hits[0].result);
-    return result;
+    return getSongData(response.data.response.hits[0].result);
   } catch (err) {
     console.error(err);
   }
